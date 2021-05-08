@@ -54,6 +54,6 @@ public class LowestCommonAncestor {
 	
 	    Node ans=findLCA(root,n1,n2);
     	System.out.println("LCA: "+ans.data);
-    }
+    } 
 	
 }
