@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BFSImpl {
+public class BFSImpl { 
 	
 	public static void bfs(ArrayList<ArrayList<Integer>> adj, int s) {
 		boolean[] visited = new boolean[adj.size()];

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class AdjacencyListRepresentation {
 	public static void main(String[] args) {
-		int v = 4;
+		int v = 4; 
 		ArrayList<ArrayList<Integer>> adj = new ArrayList<>(v);
 		for(int i = 0; i < v; i++) {
 			adj.add(new ArrayList<Integer>());
