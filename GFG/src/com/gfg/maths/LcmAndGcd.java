@@ -14,6 +14,6 @@ public class LcmAndGcd {
 	
 	public static void main(String[] args) {
 		System.out.println("GCD is : "+gcd(15,20));
-		System.out.println("LCM is : "+lcm(15,20));
+		System.out.println("LCM is : "+lcm(2,20));
 	}
 }

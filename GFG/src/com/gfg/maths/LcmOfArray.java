@@ -13,7 +13,7 @@ public class LcmOfArray {
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = { -2, 7, -3, 9, 4 };
+		int[] arr = { 2,3,6 };
 		int result = 1;
 		for(int i = 0; i < arr.length; i++) {
 			result = lcm(result, arr[i]);
