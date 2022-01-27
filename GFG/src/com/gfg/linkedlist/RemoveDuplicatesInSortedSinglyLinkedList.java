@@ -4,9 +4,11 @@ public class RemoveDuplicatesInSortedSinglyLinkedList {
 	public static void main(String[] args) {
 		Node head = new Node(1);
 		head.next = new Node(2);
-		head.next.next = new Node(3);
+		head.next.next = new Node(4);
 		head.next.next.next = new Node(4);
 		head.next.next.next.next = new Node(4);
+		head.next.next.next.next.next = new Node(4);
+		head.next.next.next.next.next.next = new Node(6);
 		head = removeDuplicates(head);
 		print(head);
 	}
@@ -25,7 +27,7 @@ public class RemoveDuplicatesInSortedSinglyLinkedList {
 		while(slow.next != null) {
 			if(slow.data == slow.next.data) {
 				slow.next = slow.next.next;
-				break;
+				continue;
 			}
 			slow = slow.next;
 		}

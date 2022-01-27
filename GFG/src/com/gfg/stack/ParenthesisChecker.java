@@ -27,6 +27,6 @@ public class ParenthesisChecker {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(ispar("((())))"));
+		System.out.println(ispar("()"));
 	}
 }
