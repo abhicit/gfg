@@ -1,8 +1,8 @@
 package com.gfg.dp;
 
 public class LongestCommonSubsequenceMemo {
-	static String name1 = "abjanh";
-	static String name2 = "abh";
+	static String name1 = "jhkj";
+	static String name2 = "jhkg";
 	static int[][] memo = new int[name1.length()+1][name2.length()+1];
 	public static void main(String[] args) {
 		for(int i = 0; i < memo.length; i++) {

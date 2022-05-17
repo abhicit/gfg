@@ -18,7 +18,7 @@ public class MajorityElement {
 		return -1;
 	}
 	
-	public static int majElement(int[] arr) {//O(n)
+	public static int majElement(int[] arr) {//O(n) - Moore's voting algorithm
 		int res = 0;
 		int count = 1;
 		for(int i = 1; i < arr.length; i++) {

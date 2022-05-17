@@ -1,11 +1,10 @@
 package com.gfg.graphs;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BFSDisconnected {
+public class BFSImplDisconnectedPractice {
 	public static void addEdge(ArrayList<ArrayList<Integer>> adj, int u, int v) {
 		adj.get(u).add(v);
 		adj.get(v).add(u); 
@@ -25,13 +24,28 @@ public class BFSDisconnected {
 		
 		System.out.println("No. of islands : "+bfsDis(adj));
 	}
-	
-	public static void bfs(ArrayList<ArrayList<Integer>> adj, int s, boolean[] visited) {
-		visited[s] = true;
+
+	private static int bfsDis(ArrayList<ArrayList<Integer>> adj) {
+		boolean[] visited = new boolean[adj.size()];
+		int res = 0;
+		for(int i = 0; i < adj.size(); i++) {
+			if(visited[i]) {
+				bfs(adj, i, visited);
+				res++;
+			}
+		}
+		return res;
+	}
+
+	private static void bfs(ArrayList<ArrayList<Integer>> adj, int i, boolean[] visited) {
+		visited[i] = true;
 		Queue<Integer> q = new LinkedList<>();
-		q.add(s);
+		q.add(i);
+		
 		while(!q.isEmpty()) {
 			int u = q.poll();
+			System.out.print(u+" ");
+			
 			for(int v : adj.get(u)) {
 				if(!visited[v]) {
 					visited[v] = true;
@@ -39,18 +53,5 @@ public class BFSDisconnected {
 				}
 			}
 		}
-	}
-	
-	public static int bfsDis(ArrayList<ArrayList<Integer>> adj) {
-		int count = 0;
-		boolean[] visited = new boolean[adj.size()];
-		Arrays.fill(visited, false);
-		for(int i = 0; i < adj.size(); i++) {
-			if(!visited[i]) {
-				bfs(adj, i, visited);
-				count++;
-			}
-		}
-		return count;
 	}
 }
