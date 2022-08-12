@@ -38,7 +38,7 @@ public class TopologicalSortingDFS {
 
 	public static void dfsRec(int s, boolean[] visited, Stack<Integer> st, ArrayList<ArrayList<Integer>> adj) {
 		visited[s] = true;
-		for(int i : adj.get(s))
+		for(int i : adj.get(s)) 
 			if(!visited[i]) {
 				dfsRec(i, visited, st, adj);
 			}

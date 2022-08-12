@@ -2,6 +2,8 @@ package com.gfg.graphs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 class AdjListNode{
@@ -19,18 +21,23 @@ class AdjListNode{
 public class ShortestPathInDAG {
 	static ArrayList<ArrayList<AdjListNode>> adj = new ArrayList<>();
 	public static void main(String[] args) {
-		int v = 4;
+		int v = 5;
 		
 		for(int i = 0; i < v; i++) {
 			adj.add(new ArrayList<AdjListNode>());
 		}
 		
-		addEdge(adj, 0, 1, 1);
+		addEdge(adj, 0, 1, 2);
+		addEdge(adj, 0, 4, 1);
 		addEdge(adj, 1, 2, 3);
-		addEdge(adj, 1, 3, 2);
-		addEdge(adj, 2, 3, 4);
+		addEdge(adj, 2, 3, 6);
+		addEdge(adj, 4, 2, 2);
+		//addEdge(adj, 4, 5, 4);
+		//addEdge(adj, 5, 3, 1);
 		
 		shortestPath(0);
+		System.out.println();
+		shortestPathTest(0);
 	}
 	
 	public static void addEdge(ArrayList<ArrayList<AdjListNode>> adj, int u, int v, int w) {
@@ -75,5 +82,28 @@ public class ShortestPathInDAG {
             else
                 System.out.print( dist[i] + " ");
         }
+	}
+	
+	public static void shortestPathTest(int s) {
+		int[] dist = new int[adj.size()];
+		Arrays.fill(dist, Integer.MAX_VALUE);
+		Queue<Integer> q = new LinkedList<>();
+		//boolean[] visited = new boolean[adj.size()];
+		dist[s] = 0;
+		q.add(s);
+		while(!q.isEmpty()) {
+			int u = q.poll();
+			for(AdjListNode v : adj.get(u)) {
+				//if(!visited[v.getV()]) {
+					//visited[v.getV()] = true;
+					q.add(v.getV());
+					if(dist[v.getV()] > v.getW() + dist[u])
+						dist[v.getV()] = v.getW() + dist[u];
+				//}
+			}
+		}
+		
+		for(int i : dist)
+			System.out.print(i+" ");
 	}
 }

@@ -3,21 +3,21 @@ package com.gfg.trie;
 import java.util.HashMap;
 import java.util.Map;
 
-class TrieNode {
-	Map<Character, TrieNode> next;
+class TrieNode1 {
+	Map<Character, TrieNode1> next;
 	boolean isEnd;
-	static TrieNode root = new TrieNode();
+	static TrieNode1 root = new TrieNode1();
 	
-	TrieNode(){
-		next = new HashMap<Character, TrieNode>();
+	TrieNode1(){
+		next = new HashMap<Character, TrieNode1>();
 		isEnd = false;
 	}
 	
 	public void insert(String word) {
-		TrieNode curr = root;
+		TrieNode1 curr = root;
 		for(char c : word.toCharArray()) {
 			if(curr.next.get(c) == null)
-				curr.next.put(c, new TrieNode());
+				curr.next.put(c, new TrieNode1());
 			curr = curr.next.get(c);
 		}
 		
@@ -25,7 +25,7 @@ class TrieNode {
 	}
 	
 	public boolean search(String word) {
-		TrieNode curr = root;
+		TrieNode1 curr = root;
 		for(char c : word.toCharArray()) {
 			if(curr.next.get(c) == null)
 				return false;
@@ -36,8 +36,8 @@ class TrieNode {
 	}
 	
 	public boolean prefixSearch(String text, String word) {
-		TrieNode curr = root;
-		TrieNode i;
+		TrieNode1 curr = root;
+		TrieNode1 i;
 		int c = 0;
 		int count = 0;
 		for(i = curr; !curr.isEnd; curr = curr.next.get(text.charAt(c))) {
@@ -59,7 +59,7 @@ class TrieNode {
 
 public class TrieImplementation {
 	public static void main(String[] args) {
-		TrieNode trie = new TrieNode();
+		TrieNode1 trie = new TrieNode1();
 		trie.insert("aabdacaadaabaaba");
 		System.out.println(trie.prefixSearch("aabdacaadaabaaba", "aaba"));
 	}
