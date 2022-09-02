@@ -9,16 +9,16 @@ public class EquilibriumPoint {
 		}
 		int l_sum = 0;
 		for(int i = 0; i < arr.length; i++) {
-			sum -= arr[i];
 			if(l_sum == sum-arr[i])
 				return true;
 			l_sum += arr[i];
+			sum -= arr[i];
 		}
 		return false;
 	}
 	
 	public static void main(String[] args) {
-		int[] arr = {3, 4, 8, -9, 20, 6};
+		int[] arr = {2, -2, 4};
 		System.out.println(isEquilibriumPoint(arr));
 	}
 }
